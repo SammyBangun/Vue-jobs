@@ -1,6 +1,6 @@
 <script setup>
 import JobListing from './JobListing.vue';
-import { reactive, defineProps, onMounted } from 'vue';
+import { reactive, onMounted } from 'vue';
 import { RouterLink } from 'vue-router';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import axios from 'axios';
@@ -13,7 +13,6 @@ defineProps({
         default: false
     }
 })
-
 
 const state = reactive({
     jobs: [],
