@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import { defineProps, ref, computed } from 'vue';
+import { ref, computed } from 'vue';
 
 const props = defineProps({
     job: {
@@ -17,12 +17,17 @@ const toggleFullDescription = () => {
 }
 
 const truncatedDescription = computed(() => {
-    let description = props.job.description;
+    const description = props.job.description || '';
+
     if (!fullDescription.value) {
-        description = description.substring(0, 100) + '...';
+        return description.length > 100
+            ? description.substring(0, 100) + '...'
+            : description;
     }
+
     return description;
-})
+});
+
 </script>
 
 
